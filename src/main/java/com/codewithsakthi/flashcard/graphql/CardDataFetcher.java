@@ -27,10 +27,10 @@ public class CardDataFetcher {
     }
 
     @DgsData(parentType = "Deck", field = "cards")
-    public CompletableFuture<List<Card>> cards(DataFetchingEnvironment dfe) {
-          DataLoader<Long, List<Card>> dataLoader = dfe.getDataLoader("cards");
-          Long deckId = dfe.getArgument("ids");
-          return dataLoader.load(deckId);
+    public CompletableFuture<Card> cards(DataFetchingEnvironment dfe) {
+          DataLoader<Long, Card> dataLoader = dfe.getDataLoader("cards");
+          Long cardId = dfe.getArgument("cardId");
+          return dataLoader.load(cardId);
       }
 
     @DgsMutation
