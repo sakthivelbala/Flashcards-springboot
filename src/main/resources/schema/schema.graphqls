@@ -1,0 +1,23 @@
+type Deck {
+    deckId: ID!
+    name: String!
+    createdAt: String!
+    cards: [Card]
+}
+
+type Card {
+    cardId: ID!
+    question: String!
+    answer: String!
+    createdAt: String!
+}
+
+type Query {
+    decks: [Deck]
+    cards(deckId: ID!): [Card]
+}
+
+type Mutation {
+    createDeck(name: String!): Deck
+    addCard(deckId: ID!, question: String!, answer: String!) : Card
+}
